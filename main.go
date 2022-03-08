@@ -25,5 +25,8 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", homeHandler)
 
-	http.ListenAndServe(":5001", r)
+	err := http.ListenAndServe(":5001", r)
+	if err != nil {
+		panic(err.Error())
+	}
 }
